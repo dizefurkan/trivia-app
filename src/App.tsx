@@ -10,15 +10,15 @@ import './App.css';
 
 const App: React.FC = () => {
   return (
-  	<Router>
-	    <Switch>
-	      <Route path="/questions">
-	      	<Questions />
-	      </Route>
-	      <Route path="/">
-	        <Welcome />
-	      </Route>
-	    </Switch>
+    <Router>
+      <Switch>
+        <Route path="/questions">
+          <Questions />
+        </Route>
+        <Route path="/">
+          <Welcome />
+        </Route>
+      </Switch>
     </Router>
   );
 }
