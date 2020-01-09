@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'src/theme/Button';
+import Container from 'src/theme/Container';
 
 const Questions: React.FC = () => {
   const buttonProps = {
@@ -10,12 +11,12 @@ const Questions: React.FC = () => {
   };
 
   return (
-    <div>
+    <Container>
       Questions
       <Button
         {...buttonProps}
       />
-    </div>
+    </Container>
   );
 }
 

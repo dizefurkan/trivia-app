@@ -2,6 +2,7 @@ import React from 'react';
 import S from './style';
 import Header from 'src/components/partials/Header';
 import Button from 'src/theme/Button';
+import Container from 'src/theme/Container';
 
 const Welcome: React.FC = () => {
   const buttonProps = {
@@ -15,13 +16,13 @@ const Welcome: React.FC = () => {
   };
 
   return (
-    <S.Container>
+    <Container>
       <Header />
       <S.Description>An app for job</S.Description>
       <Button
         {...buttonProps}
       />
-    </S.Container>
+    </Container>
   );
 };
 
