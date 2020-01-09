@@ -13,24 +13,23 @@ interface Props {
 
 const Button: React.FC<Props> = (props) => {
   const {
-    text,
-    textColor,
-    bgColor,
     to,
+    text,
+    ...buttonStyles
   } = props;
 
-  if (to) {
-    return (
-      <S.Button>
-        <Link to={to}>
-          {text}
-        </Link>
-      </S.Button>
-    );
-  }
-  return (
-    <S.Button>{text}</S.Button>
-  )
+  return(
+    <S.Button {...buttonStyles}>
+      {to
+        ? (
+          <Link to={to}>
+            {text}
+          </Link>
+        )
+        : text
+      }
+    </S.Button>
+  );
 }
 
 export default Button;

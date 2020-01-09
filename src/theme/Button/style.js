@@ -10,10 +10,10 @@ export default {
       display: block;
       margin: auto;
       text-align: center;
-      background-color: #FFCC00;
       font-weight: 700;
       text-decoration: none;
-      color: #231900;
+      background-color: ${props => props.bgColor};
+      color: ${props => props.textColor};
       cursor: pointer;
     }
   `
