@@ -3,7 +3,7 @@ import lottie from 'lottie-web';
 import Header from 'src/components/partials/Header';
 import Button from 'src/theme/Button';
 import Container from 'src/theme/Container';
-import Options from '../Options/';
+import Options from './Options/';
 import lottieBlackQuestion from 'src/assets/lottie/black-question.json';
 import S from './style';
 

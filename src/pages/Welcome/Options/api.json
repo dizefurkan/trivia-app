@@ -1,0 +1,34 @@
+{
+	"difficulties": [
+		{
+			"id": "easy",
+			"name": "Easy"
+		},
+		{
+			"id": "medium",
+			"name": "Medium"
+		},
+		{
+			"id": "hard",
+			"name": "Hard"
+		}
+	],
+	"categories": [
+		{
+			"id": 22,
+			"name": "Geography"
+		},
+		{
+			"id": 21,
+			"name": "Sports"
+		},
+		{
+			"id": 24,
+			"name": "Politics"
+		},
+		{
+			"id": 27,
+			"name": "Animals"
+		}
+	]
+}

@@ -4,9 +4,26 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Welcome from 'src/components/Welcome/index';
-import Questions from 'src/components/Questions/index';
+import Welcome from 'src/pages/Welcome';
+import Questions from 'src/pages/Questions';
+import Score from 'src/pages/Score';
 import './App.css';
+
+declare global {
+  interface Window {
+    SETTINGS: any;
+  }
+}
+
+const initialValue = {
+  diffuculty: 'easy',
+  categoryId: 24
+}
+
+window.SETTINGS = {
+  difficulty: initialValue.diffuculty,
+  categoryId: initialValue.categoryId,
+}
 
 const App: React.FC = () => {
   return (
@@ -14,6 +31,9 @@ const App: React.FC = () => {
       <Switch>
         <Route path="/questions">
           <Questions />
+        </Route>
+        <Route path="/score">
+          <Score />
         </Route>
         <Route path="/">
           <Welcome />

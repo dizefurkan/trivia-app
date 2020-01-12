@@ -8,18 +8,22 @@ interface Props {
   text: string,
   textColor: string,
   bgColor: string,
-  to: string,
+  to?: string,
+  onClick?: any,
 }
 
 const Button: React.FC<Props> = (props) => {
   const {
     to,
     text,
+    onClick,
     ...buttonStyles
   } = props;
 
   return(
-    <S.Button {...buttonStyles}>
+    <S.Button
+      {...buttonStyles}
+      onClick={() => onClick && onClick()}>
       {to
         ? (
           <Link to={to}>
