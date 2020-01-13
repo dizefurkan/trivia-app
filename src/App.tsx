@@ -17,7 +17,7 @@ declare global {
 
 const initialValue = {
   diffuculty: 'easy',
-  categoryId: 24
+  categoryId: 22
 }
 
 window.SETTINGS = {

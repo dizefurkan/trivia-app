@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import axios from 'src/axios';
 import Question from './Question';
 import Steps from './Steps';
 import Header from 'src/components/partials/Header';
-import Button from 'src/theme/Button';
-import Container from 'src/theme/Container';
 import $U from 'src/config';
-import axios from 'src/axios';
 import { shuffleArray } from 'src/utils';
+import Container from 'src/theme/Container';
 
 interface IState {
   data: [],
@@ -41,17 +40,23 @@ class Questions extends Component {
       url
     })
       .then(response => {
-        const results = require('./data.json').results;
-        const data = results.map((question: any) => {
-          const answers =
-            [...question.incorrect_answers, question.correct_answer];
-          question['answers'] = shuffleArray(answers);
-          return question;
-        });
-        this.setState({
-          data,
-          pending: false,
-        });
+        const { response_code: responseCode, results } = response.data;
+        if (responseCode === 0) {
+          const data = results.map((question: any) => {
+            const answers =
+              [...question.incorrect_answers, question.correct_answer];
+            question['answers'] = shuffleArray(answers);
+            return question;
+          });
+          this.setState({
+            data,
+            pending: false,
+          });
+        } else {
+          this.setState({
+            hasApiError: true,
+          });
+        }
       })
       .catch(() => {
         this.setState({
@@ -115,7 +120,7 @@ class Questions extends Component {
         status: answerStatus,
       })
     }, () => {
-      console.log(this.state.answeredQuestions)
+      console.log(this.state.answeredQuestions) // TODO - THIS IS FOR SHOW SCORE
       if (isAnswerCorrect) {
         this.setState({
           isAnswered: false,
@@ -156,7 +161,10 @@ class Questions extends Component {
 
     if (hasApiError) {
       return (
-        <h1>Ups, something wrong...</h1>
+        <Container>
+          <Header />
+          <h1>Ups, something wrong...</h1>
+        </Container>
       );
     }
 

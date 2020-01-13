@@ -134,7 +134,7 @@ class Question extends Component<IProps, IState> {
           fontWeight: 700
         }}>
           <span>{currentQuestion + 1}. </span>
-          <span>{data.question}</span>
+          <span dangerouslySetInnerHTML={{ __html: data.question }} />
         </div>
         <div style={{
           display: 'flex',
