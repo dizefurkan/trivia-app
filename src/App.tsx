@@ -11,7 +11,8 @@ import './App.css';
 
 declare global {
   interface Window {
-    SETTINGS: any;
+    SETTINGS: any,
+    SCORE: any,
   }
 }
 
@@ -24,6 +25,7 @@ window.SETTINGS = {
   difficulty: initialValue.diffuculty,
   categoryId: initialValue.categoryId,
 }
+window.SCORE = [];
 
 const App: React.FC = () => {
   return (

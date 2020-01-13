@@ -72,9 +72,9 @@ class Questions extends Component {
   }
 
   finishGame = () => {
+    window.SCORE = this.state.answeredQuestions;
     this.setState({
       showScore: true,
-
     });
   }
 
