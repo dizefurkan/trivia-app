@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import lottie from 'lottie-web';
+import { Lottie } from '@crello/react-lottie'
 import Header from 'src/components/partials/Header';
 import Button from 'src/theme/Button';
 import Container from 'src/theme/Container';
@@ -8,20 +8,8 @@ import lottieBlackQuestion from 'src/assets/lottie/black-question.json';
 import S from './style';
 
 class Welcome extends Component {
-  animObj: any;
-  animBox: any;
-
-  componentDidMount() {
-    this.animObj = lottie.loadAnimation({
-      container: this.animBox, // the dom element that will contain the animation
-      renderer: 'svg',
-      loop: false,
-      autoplay: true,
-      animationData: lottieBlackQuestion // the path to the animation json
-    });
-  }
-
   render() {
+    const animationData = lottieBlackQuestion;
     const buttonProps = {
       text: 'START THE GAME',
       textColor: '#231900',
@@ -31,17 +19,14 @@ class Welcome extends Component {
     return (
       <Container>
         <Header />
-        {/*<Lottie
-          options={defaultOptions}
-          height={200}
-          width={200}
-        />*/}
-        <div
+        <Lottie
+          config={{
+            animationData: animationData,
+          }}
           style={{
-            width: 200,
             margin: '0 auto',
           }}
-          ref={ref => this.animBox = ref}
+          width='200px'
         />
         <S.Description>Question Pool</S.Description>
         <Options />
